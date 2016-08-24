@@ -11,12 +11,12 @@ validation.index<-function(object){
   if(!is(object,"fuzzyResult"))
     stop("This function just for Fuzzy Clustering Result")
   #Parameter Initialized
-  U<-partition(object)
+  U<-object@partition
   K<-ncol(U)
   n<-nrow(U)
-  D<-distance(object)
-  V<-centroid(object)
-  m<-fuzzyfier(object)
+  D<-object@distance
+  V<-object@centroid
+  m<-object@fuzzyfier
   p<-ncol(V)
 
   PC<-sum(U^2)/n

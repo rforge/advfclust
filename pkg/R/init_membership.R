@@ -8,36 +8,16 @@ initMembership<-function(){
   #' @slot member membership matrix
   #' @slot hard.label vector of hard hard.labeling
   #' @exportClass membership
+
   setClass("membership",
            representation = representation(member="matrix",
-                                           hard.label="vector"),
-           prototype = list(member=matrix(),
-                            hard.label=vector()))
+                                           hard.label="vector")
+          )
 
   setMethod("is.na","membership",function(x) FALSE)
-
-  #' @name membership-class
-  #' @rdname membership-class
-  #' @exportMethod member
-  if(!isGeneric("member")){
-    if(is.function("member"))
-      fun<-member else fun<-function(object) standardGeneric("member")
-    setGeneric("member",fun)
-  }
-
-  #' @rdname membership-class
+  setGeneric("member",function(object){standardGeneric("member")})
   setMethod("member","membership",function(object) object@member)
-
-  #' @name membership-class
-  #' @rdname membership-class
-  #' @exportMethod hard.label
-  if(!isGeneric("hard.hard.label")){
-    if(is.function("hard.label"))
-      fun<-hard.label else fun<-function(object) standardGeneric("hard.label")
-      setGeneric("hard.label",fun)
-  }
-
-  #' @rdname membership-class
+  setGeneric("hard.label",function(object){standardGeneric("hard.label")})
   setMethod("hard.label","membership",function(object) object@hard.label)
 
   setValidity("membership",

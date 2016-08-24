@@ -2,9 +2,7 @@
 % Please edit documentation in R/init_fuzzyResult.R
 \name{fuzzyResult-class}
 \alias{fuzzyResult-class}
-\alias{fuzzyResult-method}
 \alias{initFuzzyResult}
-\alias{partition,}
 \title{Fuzzy Result}
 \usage{
 initFuzzyResult()

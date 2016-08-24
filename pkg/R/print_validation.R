@@ -6,7 +6,13 @@
 #' @export
 print.validation<-function(x,...){
   cat("Validation Index result:")
-  valid<-as.data.frame(c(PC(x),MPC(x),CE(x),XB(x),S(x),Kwon(x),Tang(x)))
+  valid<-as.data.frame(c(x@PC,
+                         x@MPC,
+                         x@CE,
+                         x@XB,
+                         x@S,
+                         x@Kwon,
+                         x@Tang))
   colnames(valid)<-"Value"
   rownames(valid)<-c("Partition Coefficient",
                      "Modified Partition Coefficient",
