@@ -1,0 +1,13 @@
+Package: advfclust
+Type: Package
+Title: Fuzzy Clustering (Ensembling and Optimization)
+Version: 0.1
+Date: 2016-08-20
+Author: Achmad Fauzi Bagus F
+Maintainer: Achmad Fauzi Bagus F <fauzi.pandya@gmail.com>
+Description: Advance Fuzzy Clustering is a package that provides some technical analysis algoritm for Fuzzy Clustering. There are several technique that provided by this package, i.e. Fuzzy C-Means, and Gustafson Kessel (Babuska Version).In addition to optimize the resulting centroid, this package provide optimization algorithm and ensembling.For validating the result, this package provide several validation index, i.e. Xie index used for validation Beni (XB), Kwon (K), Tang (T), Separation (S), Partition Coefficient (PC), Classification Entrophy (CE), Modified Partition Coefficient (MPC).
+License: GPL-2
+Depends: R (>= 3.2.5)
+Imports: methods, knitr, MASS
+LazyData: TRUE
+RoxygenNote: 5.0.1
