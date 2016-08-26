@@ -10,6 +10,7 @@
 #' @param RandomNumber random number for start initializing
 #' @param gamma tuning parameter
 #' @param rho volume cluster parameter
+#' @param print.result print result (0/1)
 #' @details This function perform Fuzzy C-Means algorithm by Gustafson Kessel (1968) that improved by Babuska et al (2002).
 #' Gustafson Kessel (GK) is one of fuzzy clustering methods to clustering dataset
 #' become K cluster. Number of cluster (K) must be greater than 1. To control the overlaping
@@ -39,7 +40,8 @@ fuzzy.GK<- function(X,
                     max.iteration,
                     threshold,
                     member.init,
-                    RandomNumber=0)
+                    RandomNumber=0,
+                    print.result=0)
 {
   #Parameter Checker
   if(missing(X))
@@ -65,7 +67,7 @@ fuzzy.GK<- function(X,
   if(missing(max.iteration)||!is.numeric(max.iteration))
   {
     max.iteration<-1000
-    cat("Maximum Iteration= 1000 will be used.\n")
+    cat("Maximum Iteration 1000 will be used.\n")
   }
   if(missing(threshold)||!is.numeric(threshold))
   {
@@ -112,7 +114,9 @@ fuzzy.GK<- function(X,
   F <- array(0,c(p,p,K))
 
   iteration<-1
+  cat("\n")
   repeat{
+    cat("\r",paste("iteration:\t",iteration))
     U.old <- U
     D.old <-D
     V.old<-V
@@ -171,13 +175,14 @@ fuzzy.GK<- function(X,
 
     func.obj = sum(U ^ m * D)
     iteration = iteration + 1
-    if((max(abs(U.old - U)) <= threshold) &&
+    if((max(abs(U.old - U)) <= threshold) ||
        (iteration > max.iteration))
       break
   }
+  rownames(U)<-rownames(X)
   label<-apply(U, 1,
                function(x) which.max(x))
-  result<-new("fuzzyResult",
+  result<-new("fuzzycluster",
               partition=U,
               centroid=V,
               func.obj=func.obj,
@@ -187,6 +192,8 @@ fuzzy.GK<- function(X,
               fuzzyfier=m,
               method.fuzzy="Gustafson Kessel Clustering"
   )
-  show(result)
+  cat("\nFinish :)\n")
+  if(print.result==1)
+    show(result)
   return(result)
 }

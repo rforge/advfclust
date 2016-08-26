@@ -8,7 +8,7 @@
 #' @author Achmad Fauzi Bagus F
 #' @export
 validation.index<-function(object){
-  if(!is(object,"fuzzyResult"))
+  if(!is(object,"fuzzycluster"))
     stop("This function just for Fuzzy Clustering Result")
   #Parameter Initialized
   U<-object@partition

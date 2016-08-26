@@ -5,7 +5,7 @@
 \title{Gustafson Kessel Clustering with Babuska Improvisation}
 \usage{
 fuzzy.GK(X, K, m, gamma, rho, max.iteration, threshold, member.init,
-  RandomNumber = 0)
+  RandomNumber = 0, print.result = 0)
 }
 \arguments{
 \item{X}{dataset (matrix/data frame)}
@@ -25,6 +25,8 @@ fuzzy.GK(X, K, m, gamma, rho, max.iteration, threshold, member.init,
 \item{member.init}{membership object or matrix that will be used for initialized}
 
 \item{RandomNumber}{random number for start initializing}
+
+\item{print.result}{print result (0/1)}
 }
 \description{
 Gustafson Kessel clustering Algorithm that improved by Babuska for estimating covariance cluster (Babuska, 2002)

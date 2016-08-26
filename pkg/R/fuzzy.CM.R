@@ -8,6 +8,7 @@
 #' @param threshold convergence criteria
 #' @param member.init membership object or matrix that will be used for initialized
 #' @param RandomNumber random number for start initializing
+#' @param print.result print result (9/1)
 #' @details This function perform Fuzzy C-Means algorithm by Bezdek (1984).
 #' Fuzzy C-Means is one of fuzzy clustering methods to clustering dataset
 #' become K cluster. Number of cluster (K) must be greater than 1. To control the overlaping
@@ -27,7 +28,8 @@ fuzzy.CM<- function(X,
                     max.iteration,
                     threshold,
                     member.init,
-                    RandomNumber=0)
+                    RandomNumber=0,
+                    print.result=0)
   {
   #Parameter Checker
   if(missing(X))
@@ -45,7 +47,7 @@ fuzzy.CM<- function(X,
   if(missing(max.iteration)||!is.numeric(max.iteration))
   {
     max.iteration<-1000
-    cat("Maximum Iteration= 1000 will be used.\n")
+    cat("Maximum Iteration 1000 will be used.\n")
   }
   if(missing(threshold)||!is.numeric(threshold))
   {
@@ -88,7 +90,9 @@ fuzzy.CM<- function(X,
   #Distance Matrix
   D <- matrix(0,n,K)
   iteration<-1
+  cat("\n")
   repeat{
+    cat("\r",paste("iteration:\t",iteration))
     U.old <- U
     D.old <-D
     V.old<-V
@@ -126,13 +130,15 @@ fuzzy.CM<- function(X,
 
     func.obj = sum(U ^ m * D)
     iteration = iteration + 1
-    if((max(abs(U.old - U)) <= threshold) &&
+    if((max(abs(U.old - U)) <= threshold) ||
        (iteration > max.iteration))
       break
   }
+
+  rownames(U)<-rownames(X)
   label<-apply(U, 1,
                function(x) which.max(x))
-  result<-new("fuzzyResult",
+  result<-new("fuzzycluster",
               partition=U,
               centroid=V,
               func.obj=func.obj,
@@ -142,6 +148,8 @@ fuzzy.CM<- function(X,
               fuzzyfier=m,
               method.fuzzy="Fuzzy C-Means"
   )
+  cat("\nFinish :)\n")
+  if(print.result==1)
   show(result)
   return(result)
 }

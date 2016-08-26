@@ -4,7 +4,8 @@
 \alias{fuzzy.CM}
 \title{Fuzzy C-Means}
 \usage{
-fuzzy.CM(X, K, m, max.iteration, threshold, member.init, RandomNumber = 0)
+fuzzy.CM(X, K, m, max.iteration, threshold, member.init, RandomNumber = 0,
+  print.result = 0)
 }
 \arguments{
 \item{X}{dataset (matrix/data frame)}
@@ -20,6 +21,8 @@ fuzzy.CM(X, K, m, max.iteration, threshold, member.init, RandomNumber = 0)
 \item{member.init}{membership object or matrix that will be used for initialized}
 
 \item{RandomNumber}{random number for start initializing}
+
+\item{print.result}{print result (9/1)}
 }
 \description{
 Fuzzy C-Means clustering Algorithm (Bezdek, 1984)
