@@ -2,6 +2,13 @@
 % Please edit documentation in R/method_fuzzycluster.R
 \docType{methods}
 \name{is.na,fuzzycluster-method}
+\alias{.cPair}
+\alias{.cPair,ANY,ANY-method}
+\alias{.cPair,ANY,fuzzycluster-method}
+\alias{.cPair,fuzzycluster,ANY-method}
+\alias{.cPair,fuzzycluster,fuzzycluster-method}
+\alias{cPair,fuzzycluster-method}
+\alias{cPair,fuzzycluster-method,ANY-method}
 \alias{call.func}
 \alias{call.func,}
 \alias{call.func,fuzzycluster-method}
@@ -70,11 +77,23 @@ method.fuzzy(x)
 partition(x)
 
 \S4method{partition}{fuzzycluster}(x)
+
+.cPair(x, y)
+
+\S4method{.cPair}{fuzzycluster,fuzzycluster}(x, y)
+
+\S4method{.cPair}{fuzzycluster,ANY}(x, y)
+
+\S4method{.cPair}{ANY,fuzzycluster}(x, y)
+
+\S4method{.cPair}{ANY,ANY}(x, y)
 }
 \arguments{
 \item{x}{an fuzzycluster object}
 
 \item{object}{an fuzzycluster object}
+
+\item{y}{an fuzzycluster object}
 }
 \description{
 Method for fuzzycluster classes

@@ -2,6 +2,7 @@
 #'
 #' @param x an fuzzycluster object
 #' @param object an fuzzycluster object
+#' @param y an fuzzycluster object
 #' @export
 #' @docType methods
 #' @rdname fuzzycluster-methods
@@ -100,3 +101,28 @@ setGeneric("partition",function(x){standardGeneric("partition")})
 #' @rdname fuzzycluster-methods
 #' @aliases partition,fuzzycluster-method
 setMethod("partition","fuzzycluster",function(x) x@partition)
+
+#' @rdname fuzzycluster-methods
+#' @aliases cPair,fuzzycluster-method
+#' @exportMethod .cPair
+setGeneric(".cPair",function(x,y){standardGeneric(".cPair")})
+
+#' @rdname fuzzycluster-methods
+#' @aliases cPair,fuzzycluster-method,ANY-method
+setMethod(".cPair",c("fuzzycluster","fuzzycluster"),
+          function(x,y) {.fuzzy.cPair(x,y)})
+
+#' @rdname fuzzycluster-methods
+#' @aliases cPair,fuzzycluster-method,ANY-method
+setMethod(".cPair",c("fuzzycluster","ANY"),
+          function(x,y) {.fuzzy.cPair(x,y)})
+
+#' @rdname fuzzycluster-methods
+#' @aliases cPair,fuzzycluster-method,ANY-method
+setMethod(".cPair",c("ANY","fuzzycluster"),
+          function(x,y) {.fuzzy.cPair(x,y)})
+
+#' @rdname fuzzycluster-methods
+#' @aliases cPair,fuzzycluster-method,ANY-method
+setMethod(".cPair",c("ANY","ANY"),
+          function(x,y) {.fuzzy.cPair(x,y)})
