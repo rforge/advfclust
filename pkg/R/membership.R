@@ -7,12 +7,12 @@
 "membership"<-function(member,K,n,RandomNumber=0){
   if(missing(K))
   {
-    cat("\nNumber Of Cluster undefined.Default number of cluster(2) will be used")
+    cat("\nNumber Of Cluster undefined.Default number of cluster(2) will be used\n")
     K<-2
   }
 
   if(missing(n))
-    return("Specify number of data first")
+    stop("Specify number of data first")
 
   if(missing(member)||
      ncol(member)!=K||
