@@ -4,6 +4,7 @@
 #' @param data.X a matrix data
 #' @import ggplot2
 #' @import reshape2
+#' @importFrom stats sd
 #' @export
 radar.plotting<-function(object,data.X){
   if(missing(object)||missing(data.X))

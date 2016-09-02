@@ -31,7 +31,8 @@
 #' @references Balasko, B., Abonyi, J., & Feil, B. (2002). Fuzzy Clustering and Data Analysis Toolbox: For Use with Matlab. Veszprem, Hungary.
 #' @references Gustafson, D. E., & Kessel, W. C. (1978). Fuzzy Clustering With A Fuzzy Covariance Matrix. 761-766.
 #' @export
-#' @import MASS
+#' @importFrom MASS ginv
+#' @importFrom stats cov
 fuzzy.GK<- function(X,
                     K,
                     m,

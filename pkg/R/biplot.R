@@ -4,6 +4,7 @@
 #' @param data.X a data matrix that used for clustering
 #' @param scale scaling option (T/F)
 #' @import ggplot2
+#' @importFrom stats prcomp
 #' @export
 biploting <- function(object,data.X,scale) {
   if(missing(object)||missing(data.X))

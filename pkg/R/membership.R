@@ -3,6 +3,7 @@
 #' @param K number of cluster
 #' @param n number of observation
 #' @param RandomNumber random number/seed used
+#' @importFrom stats runif
 #' @export
 "membership"<-function(member,K,n,RandomNumber=0){
   if(missing(K))

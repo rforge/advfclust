@@ -110,19 +110,19 @@ setGeneric(".cPair",function(x,y){standardGeneric(".cPair")})
 #' @rdname fuzzycluster-methods
 #' @aliases cPair,fuzzycluster-method,ANY-method
 setMethod(".cPair",c("fuzzycluster","fuzzycluster"),
-          function(x,y) {.fuzzy.cPair(x,y)})
+          function(x,y) {fuzzy.cPair(x,y)})
 
 #' @rdname fuzzycluster-methods
 #' @aliases cPair,fuzzycluster-method,ANY-method
 setMethod(".cPair",c("fuzzycluster","ANY"),
-          function(x,y) {.fuzzy.cPair(x,y)})
+          function(x,y) {fuzzy.cPair(x,y)})
 
 #' @rdname fuzzycluster-methods
 #' @aliases cPair,fuzzycluster-method,ANY-method
 setMethod(".cPair",c("ANY","fuzzycluster"),
-          function(x,y) {.fuzzy.cPair(x,y)})
+          function(x,y) {fuzzy.cPair(x,y)})
 
 #' @rdname fuzzycluster-methods
 #' @aliases cPair,fuzzycluster-method,ANY-method
 setMethod(".cPair",c("ANY","ANY"),
-          function(x,y) {.fuzzy.cPair(x,y)})
+          function(x,y) {fuzzy.cPair(x,y)})
