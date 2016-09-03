@@ -11,7 +11,20 @@ c_fuzzycluster(x, ...)
 
 \item{...}{a fuzzy cluster object}
 }
+\value{
+Fuzzy Clustering List
+}
 \description{
 combining fuzzy cluster result before ensembling
+}
+\section{Slots}{
+
+\describe{
+\item{\code{pair}}{pair list}
+}}
+\examples{
+fuzzy.CM(iris[,1:4],K=3,m=2,max.iteration=100,threshold=1e-5,RandomNumber=1234)->cl1
+fuzzy.GK(iris[,1:4],K=3,m=2)->cl2
+c_fuzzycluster(cl1,cl2)
 }
 

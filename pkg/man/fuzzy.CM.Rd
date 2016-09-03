@@ -24,6 +24,9 @@ fuzzy.CM(X, K, m, max.iteration, threshold, member.init, RandomNumber = 0,
 
 \item{print.result}{print result (9/1)}
 }
+\value{
+Fuzzy Clustering object
+}
 \description{
 Fuzzy C-Means clustering Algorithm (Bezdek, 1984)
 }
@@ -39,6 +42,28 @@ Clustering will produce fuzzy membership matrix (U) and fuzzy cluster centroid (
 The greatest value of membership on data point will determine cluster label.
 Centroid or cluster center can be use to interpret the cluster. Both membership and centroid produced by
 calculating mathematical distance. Fuzzy C-Means calculate distance with Euclideans norm.
+}
+\section{Slots}{
+
+\describe{
+\item{\code{centroid}}{centroid matrix}
+
+\item{\code{distance}}{distance matrix}
+
+\item{\code{func.obj}}{function objective}
+
+\item{\code{call.func}}{called function}
+
+\item{\code{fuzzyfier}}{fuzzyness parameter}
+
+\item{\code{method.fuzzy}}{method of fuzzy clustering used}
+
+\item{\code{member}}{membership matrix}
+
+\item{\code{hard.label}}{hard.label}
+}}
+\examples{
+fuzzy.CM(iris[,1:4],K=3,m=2,max.iteration=100,threshold=1e-5,RandomNumber=1234)
 }
 \references{
 Balasko, B., Abonyi, J., & Feil, B. (2002). Fuzzy Clustering and Data Analysis Toolbox: For Use with Matlab. Veszprem, Hungary.

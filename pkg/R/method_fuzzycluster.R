@@ -16,15 +16,6 @@ setMethod("show","fuzzycluster",function(object){
 })
 
 #' @rdname fuzzycluster-methods
-#' @aliases label, fuzzycluster-method
-#' @exportMethod label
-setGeneric("label",function(x){standardGeneric("label")})
-
-#' @rdname fuzzycluster-methods
-#' @aliases label,fuzzycluster-method
-setMethod("label","fuzzycluster",function(x) x@label)
-
-#' @rdname fuzzycluster-methods
 #' @aliases centroid, fuzzycluster-method
 #' @exportMethod centroid
 setGeneric("centroid",function(x){standardGeneric("centroid")})
@@ -32,15 +23,6 @@ setGeneric("centroid",function(x){standardGeneric("centroid")})
 #' @rdname fuzzycluster-methods
 #' @aliases centroid,fuzzycluster-method
 setMethod("centroid","fuzzycluster",function(x) x@centroid)
-
-#' @rdname fuzzycluster-methods
-#' @aliases label, fuzzycluster-method
-#' @exportMethod label
-setGeneric("label",function(x){standardGeneric("label")})
-
-#' @rdname fuzzycluster-methods
-#' @aliases label,fuzzycluster-method
-setMethod("label","fuzzycluster",function(x) x@label)
 
 
 #' @rdname fuzzycluster-methods
@@ -91,16 +73,6 @@ setGeneric("method.fuzzy",function(x){standardGeneric("method.fuzzy")})
 #' @rdname fuzzycluster-methods
 #' @aliases method.fuzzy,fuzzycluster-method
 setMethod("method.fuzzy","fuzzycluster",function(x) x@method.fuzzy)
-
-
-#' @rdname fuzzycluster-methods
-#' @aliases partition, fuzzycluster-method
-#' @exportMethod partition
-setGeneric("partition",function(x){standardGeneric("partition")})
-
-#' @rdname fuzzycluster-methods
-#' @aliases partition,fuzzycluster-method
-setMethod("partition","fuzzycluster",function(x) x@partition)
 
 #' @rdname fuzzycluster-methods
 #' @aliases cPair,fuzzycluster-method

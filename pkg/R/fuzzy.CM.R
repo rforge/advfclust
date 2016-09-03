@@ -21,7 +21,19 @@
 #' calculating mathematical distance. Fuzzy C-Means calculate distance with Euclideans norm.
 #' @references Balasko, B., Abonyi, J., & Feil, B. (2002). Fuzzy Clustering and Data Analysis Toolbox: For Use with Matlab. Veszprem, Hungary.
 #' @references Bezdek, J. C., Ehrlich, R., & Full, W. (1984). FCM: The Fuzzy C-Means Clustering Algorithm. Computers and Geosciences Vol 10, 191-203
+#' @return Fuzzy Clustering object
+#'
+#' @slot centroid centroid matrix
+#' @slot distance distance matrix
+#' @slot func.obj function objective
+#' @slot call.func called function
+#' @slot fuzzyfier fuzzyness parameter
+#' @slot method.fuzzy method of fuzzy clustering used
+#' @slot member membership matrix
+#' @slot hard.label hard.label
 #' @export
+#' @examples
+#' fuzzy.CM(iris[,1:4],K=3,m=2,max.iteration=100,threshold=1e-5,RandomNumber=1234)
 fuzzy.CM<- function(X,
                     K,
                     m,
@@ -74,6 +86,7 @@ fuzzy.CM<- function(X,
     if(ncol(member.init)!=K ||
        nrow(member.init)!=n)
     {
+      cat("Membership not applicable with other parameter")
       if (RandomNumber <= 0 || !is.numeric(RandomNumber))
       {
         member.init<-membership(K=K,n=n)
@@ -81,7 +94,18 @@ fuzzy.CM<- function(X,
         member.init<-membership(K=K,n=n,RandomNumber = RandomNumber)
     } else member.init<-membership(member.init,K=K,n=n)
   } else
-    member.init<-as.membership(member.init)
+  {
+    if(ncol(member(member.init))!=K||nrow(member(member.init))!=n)
+    {
+      cat("Membership not applicable with other parameter")
+      if (RandomNumber <= 0 || !is.numeric(RandomNumber))
+      {
+        member.init<-membership(K=K,n=n)
+      } else
+        member.init<-membership(K=K,n=n,RandomNumber = RandomNumber)
+    } else
+      member.init<-as.membership(member.init)
+  }
   U<-member(member.init)
 
   #Initialize Centroid Matrix V (K x p)
@@ -139,11 +163,11 @@ fuzzy.CM<- function(X,
   label<-apply(U, 1,
                function(x) which.max(x))
   result<-new("fuzzycluster",
-              partition=U,
+              member=U,
               centroid=V,
               func.obj=func.obj,
               distance=D,
-              label=label,
+              hard.label=label,
               call.func=as.character(deparse(match.call())),
               fuzzyfier=m,
               method.fuzzy="Fuzzy C-Means"
