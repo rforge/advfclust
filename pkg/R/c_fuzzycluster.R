@@ -6,8 +6,8 @@
 #' @slot pair pair list
 #' @export
 #' @examples
-#' fuzzy.CM(iris[,1:4],K=3,m=2,max.iteration=100,threshold=1e-5,RandomNumber=1234)->cl1
-#' fuzzy.GK(iris[,1:4],K=3,m=2)->cl2
+#' fuzzy.CM(iris[,1:4],K=2,m=2,max.iteration=20,threshold=1e-3,RandomNumber=1234)->cl1
+#' fuzzy.GK(iris[,1:4],K=2,m=2,max.iteration=20,threshold=1e-3,RandomNumber=1234)->cl2
 #' c_fuzzycluster(cl1,cl2)
 "c_fuzzycluster"<-function(x,...){
   if(nargs()<3) .cPair(x,...)

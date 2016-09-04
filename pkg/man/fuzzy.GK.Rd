@@ -73,7 +73,7 @@ the algorithm with decomposition of covariance so it will become non singular ma
 \item{\code{hard.label}}{hard.label}
 }}
 \examples{
-fuzzy.GK(iris[,1:4],K=3,m=2,max.iteration=100,threshold=1e-5,RandomNumber=1234)
+fuzzy.GK(iris[,1:4],K=2,m=2,max.iteration=20,threshold=1e-3,RandomNumber=1234)
 }
 \references{
 Babuska, R., Veen, P. v., & Kaymak, U. (2002). Improved Covarians Estimation for Gustafson Kessel Clustering. IEEE, 1081-1084.
